@@ -1,0 +1,303 @@
+@use "@/styles/variables" as *;
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  width: 100svw;
+  height: auto;
+  min-height: 100lvh;
+  background-color: $white;
+
+  .heroContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: min(98%, 65rem);
+    height: fit-content;
+    min-height: 100vh;
+  }
+
+  .heroInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: calc(60vh - 5rem);
+    min-height: 11rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    background-color: $white;
+    padding-inline: 1.5rem;
+    border-radius: 2rem;
+    .heroHeadline {
+      @include flexCenter;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      align-items: start;
+      position: relative;
+      z-index: 2;
+
+      .headline {
+        h1 {
+          font-size: clamp(1.7rem, 5vw, 2.7rem);
+          color: $black;
+          font-family: $font-primary;
+          line-height: 1.1;
+        }
+      }
+      .subheadline {
+        @include flexCenter;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        width: fit-content;
+        p {
+          font-size: clamp(0.775rem, 0.2rem + 1.75vw, 1.15rem);
+          color: $black-light;
+          font-family: $font-primary;
+          font-weight: bold;
+          text-wrap: balance;
+        }
+      }
+    }
+
+    .ctaContainer {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      gap: 1rem;
+      button {
+        @include flexCenter;
+        gap: 0.25rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-family: $font-secondary;
+        padding-block: 0.65rem;
+        padding-inline: 0.55rem;
+        border-radius: 1rem;
+        font-size: clamp(0.7rem, 0.2rem + 1.75vw, 0.9rem);
+        cursor: pointer;
+        height: 100%;
+        .icon {
+          font-size: clamp(0.8rem, 0.2rem + 1.75vw, 1.2rem);
+          line-height: 0;
+        }
+      }
+      .price {
+        background-color: $black;
+        color: $white-primary;
+        border: none;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        padding-block: 0.75rem;
+        .pulseCircle {
+          position: relative;
+          width: 0.5rem;
+          height: 0.5rem;
+          border-radius: 2rem;
+          background-color: $orange;
+          margin-inline: 0.5rem;
+          transition: background-color 0.3s ease-in-out;
+
+          .circle {
+            position: absolute;
+            inset: 0;
+            background-color: $orange;
+            border-radius: 2rem;
+            animation: pulseFading infinite 1s;
+            transition: background-color 0.3s ease-in-out;
+          }
+        }
+        &:hover {
+          background-color: $orange;
+          color: $black;
+          .pulseCircle,
+          .circle {
+            background-color: $black;
+          }
+        }
+      }
+      .whatsapp {
+        background-color: $green-whatsapp;
+        border: none;
+        color: $white-primary;
+        filter: brightness(1);
+        transition: filter 0.3s ease-in-out;
+        &:hover {
+          filter: brightness(1.1);
+        }
+      }
+    }
+    @media (max-height: $sm) {
+      gap: 1rem;
+      .heroHeadline {
+        .headline {
+          h1 {
+            font-size: 1.5rem;
+          }
+        }
+      }
+      .heroHeadline .subheadline {
+        p {
+          font-size: 0.75rem;
+          max-width: 25rem;
+        }
+      }
+      .ctaContainer {
+        button {
+          font-size: 0.7rem;
+          padding-block: 0.65rem;
+          padding-inline: 0.55rem;
+          .price {
+            padding-block: 2.5rem !important;
+          }
+        }
+      }
+    }
+    @media (min-width: $md) {
+      padding-inline: 3.5rem;
+    }
+  }
+
+  .heroVisual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    height: calc(50vh - 5rem);
+    .heroImageContainer {
+      @include flexCenter;
+      background-color: $orange;
+      border-radius: 2rem;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      min-height: 7rem;
+      overflow: hidden;
+
+      .heroIconContainer {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        scale: 1.2;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          object-position: center;
+        }
+      }
+    }
+    @media (min-width: $md) {
+      flex-direction: row;
+      .heroImageContainer {
+        width: 50%;
+      }
+    }
+  }
+}
+
+.listContent {
+  width: 50%;
+  height: 100%;
+  background-color: $black;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+  width: 100%;
+  height: 100%;
+  min-height: 11rem;
+  .firstItems,
+  .lastItems {
+    width: fit-content;
+    height: fit-content;
+    gap: 2rem;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: start;
+    justify-content: space-between;
+    .item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      width: fit-content;
+      padding-block: 0.35rem;
+      padding-inline: 0.55rem;
+      border-radius: 1.5rem;
+      background-color: $black-cold;
+      color: $white-primary;
+      overflow: hidden;
+      cursor: default;
+      p {
+        font-size: clamp(0.675rem, 0.2rem + 1.75vw, 0.875rem);
+        font-family: $font-secondary;
+        @media (max-height: $sm) {
+          font-size: 0.65rem;
+        }
+      }
+      .spotlight {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 4.5rem;
+        border-radius: 1.5rem;
+        mask-image: linear-gradient(to right, black, transparent 90%);
+        transition: width 0.3s ease-in-out;
+      }
+      .icon {
+        @include flexCenter;
+        position: relative;
+        z-index: 1;
+        width: 2.5rem;
+        min-width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 12rem;
+        background-color: $black;
+      }
+      .itemCapacity,
+      .itemTemperature,
+      .itemLocals,
+      .itemService {
+        position: relative;
+        z-index: 1;
+      }
+      &:hover {
+        .spotlight {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@keyframes pulseFading {
+  0% {
+    scale: 1;
+    opacity: 1;
+  }
+  100% {
+    scale: 3;
+    opacity: 0;
+  }
+}
