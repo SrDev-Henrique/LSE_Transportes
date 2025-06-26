@@ -46,7 +46,14 @@ const Hero = () => {
   };
 
   return (
-    <section aria-label="hero" className={styles.container}>
+    <section
+      style={{
+        height: "100vh",
+        minHeight: "100lvh",
+      }}
+      aria-label="hero"
+      className={styles.container}
+    >
       <div className={styles.heroContent}>
         <div className={styles.heroInfo}>
           <div className={styles.heroHeadline}>
@@ -145,7 +152,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className={styles.backgroundImage}/>
+      <div className={styles.backgroundImage} />
     </section>
   );
 };

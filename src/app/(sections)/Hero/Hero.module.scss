@@ -25,14 +25,15 @@
     flex-direction: column;
     width: min(98%, 65rem);
     height: fit-content;
-    padding-block: 2rem;
+    padding-top: 2rem;
     background-color: transparent;
     backdrop-filter: brightness(0.5) blur(8px);
     border-radius: 1.5rem;
     @media (min-height: $sm) and (min-width: $sm) {
-      gap: 1.5rem;
+      gap: 1rem;
       background-color: transparent;
       backdrop-filter: none;
+      padding-top: 3.5rem;
     }
   }
 
@@ -176,9 +177,6 @@
         }
       }
     }
-    @media (min-width: $md) {
-      padding-inline: 3.5rem;
-    }
     @media (min-width: $sm) {
       padding-inline: 1.5rem;
       .ctaContainer {
@@ -189,6 +187,12 @@
       background-color: transparent;
       backdrop-filter: brightness(0.5) blur(8px);
       padding-bottom: 0;
+      height: calc(52vh - 5rem);
+    }
+    @media (min-width: $md) {
+      padding-inline: 3.5rem;
+    }
+    @media (min-width: $md) and (min-height: $sm) {
       height: calc(60vh - 5rem);
     }
   }
@@ -200,7 +204,7 @@
     justify-content: space-between;
     gap: 1rem;
     width: 100%;
-    height: calc(40vh - 5rem);
+    height: calc(48vh - 5rem);
     @media (min-height: $sm) and (max-width: $sm) {
       flex-direction: column-reverse;
     }
@@ -233,6 +237,7 @@
       }
     }
     @media (min-width: $md) {
+      height: calc(40vh - 5rem);
       flex-direction: row;
       .heroImageContainer {
         width: 50%;
@@ -242,7 +247,8 @@
 }
 
 .listContent {
-  @include flexCenter;
+  display: flex;
+  align-items: center;
   width: 50%;
   height: 100%;
   border-radius: 2rem;
@@ -323,6 +329,9 @@
     .lastItems {
       gap: 2rem;
     }
+  }
+  @media (max-height: $sm) and (min-width: $md) {
+    padding-left: 3.5rem;
   }
 }
 
