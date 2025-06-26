@@ -145,6 +145,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      <div className={styles.backgroundImage}/>
     </section>
   );
 };

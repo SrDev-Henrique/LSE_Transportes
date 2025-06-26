@@ -1,11 +1,67 @@
 @use "@/styles/variables" as *;
 
+@mixin flexBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .container {
-    position: fixed;
-    top: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
-    width: min(90%, 1280px);
-    border: 1px solid black;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: min(98%, 1280px);
+  height: 4rem;
+  padding-inline: 0.25rem;
+  background-color: $black-cold;
+  padding-block: 0.25rem;
+  border-radius: 0.5rem;
+  @media (max-height: $sm) {
+    height: 3rem;
+  }
+  @media (min-width: $md) {
+    padding-inline: 2rem;
+  }
+}
+
+.nav {
+  @include flexBetween;
+  width: 100%;
+  height: 100%;
+}
+
+.brand {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  h1 {
+    font-family: $font-primary;
+    color: $white;
+    font-size: clamp(1rem, 0.5rem + 1.75vw, 1.3rem)
+  }
+}
+
+.icon {
+  @include flexCenter;
+  height: 2.6rem;
+  width: 3rem;
+  padding: 0.25rem;
+  background-color: $black;
+  border-radius: 0.5rem;
+  @media (min-height: $sm) {
+    height: 3rem;
+  }
 }

@@ -9,22 +9,31 @@
 .container {
   position: relative;
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: center;
   width: 100svw;
   height: auto;
   min-height: 100lvh;
-  background-color: $white;
+  background-color: $black-cold;
 
   .heroContent {
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 1.5rem;
     width: min(98%, 65rem);
     height: fit-content;
-    min-height: 100vh;
+    padding-block: 2rem;
+    background-color: transparent;
+    backdrop-filter: brightness(0.5) blur(8px);
+    border-radius: 1.5rem;
+    @media (min-height: $sm) and (min-width: $sm) {
+      gap: 1.5rem;
+      background-color: transparent;
+      backdrop-filter: none;
+    }
   }
 
   .heroInfo {
@@ -33,15 +42,16 @@
     justify-content: center;
     flex-direction: column;
     gap: 1.5rem;
-    height: calc(60vh - 5rem);
-    min-height: 11rem;
-    margin-top: 1.5rem;
+    height: calc(42vh - 5rem);
     width: 100%;
-    background-color: $white;
-    padding-inline: 1.5rem;
+    min-height: 12rem;
+    margin-top: 1.5rem;
+    padding-inline: 1rem;
+    padding-bottom: 2rem;
     border-radius: 2rem;
     .heroHeadline {
-      @include flexCenter;
+      display: flex;
+      justify-content: center;
       flex-direction: column;
       gap: 1rem;
       width: 100%;
@@ -52,7 +62,7 @@
       .headline {
         h1 {
           font-size: clamp(1.7rem, 5vw, 2.7rem);
-          color: $black;
+          color: $white;
           font-family: $font-primary;
           line-height: 1.1;
         }
@@ -64,7 +74,7 @@
         width: fit-content;
         p {
           font-size: clamp(0.775rem, 0.2rem + 1.75vw, 1.15rem);
-          color: $black-light;
+          color: $white-secondary;
           font-family: $font-primary;
           font-weight: bold;
           text-wrap: balance;
@@ -78,7 +88,7 @@
       width: 100%;
       display: flex;
       align-items: center;
-      justify-content: start;
+      justify-content: center;
       gap: 1rem;
       button {
         @include flexCenter;
@@ -89,11 +99,11 @@
         padding-block: 0.65rem;
         padding-inline: 0.55rem;
         border-radius: 1rem;
-        font-size: clamp(0.7rem, 0.2rem + 1.75vw, 0.9rem);
+        font-size: clamp(0.575rem, 1.75vw, 0.9rem);
         cursor: pointer;
-        height: 100%;
+        height: 100% !important;
         .icon {
-          font-size: clamp(0.8rem, 0.2rem + 1.75vw, 1.2rem);
+          font-size: clamp(1rem, 0.2rem + 1.75vw, 1.2rem);
           line-height: 0;
         }
       }
@@ -102,28 +112,27 @@
         color: $white-primary;
         border: none;
         transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-        padding-block: 0.75rem;
+        padding-block: 0.8rem;
         .pulseCircle {
           position: relative;
           width: 0.5rem;
           height: 0.5rem;
           border-radius: 2rem;
-          background-color: $orange;
+          background-color: $green;
           margin-inline: 0.5rem;
           transition: background-color 0.3s ease-in-out;
 
           .circle {
             position: absolute;
             inset: 0;
-            background-color: $orange;
+            background-color: $green;
             border-radius: 2rem;
             animation: pulseFading infinite 1s;
             transition: background-color 0.3s ease-in-out;
           }
         }
         &:hover {
-          background-color: $orange;
-          color: $black;
+          background-color: $green;
           .pulseCircle,
           .circle {
             background-color: $black;
@@ -170,6 +179,18 @@
     @media (min-width: $md) {
       padding-inline: 3.5rem;
     }
+    @media (min-width: $sm) {
+      padding-inline: 1.5rem;
+      .ctaContainer {
+        justify-content: start;
+      }
+    }
+    @media (min-height: $sm) and (min-width: $sm) {
+      background-color: transparent;
+      backdrop-filter: brightness(0.5) blur(8px);
+      padding-bottom: 0;
+      height: calc(60vh - 5rem);
+    }
   }
 
   .heroVisual {
@@ -179,16 +200,23 @@
     justify-content: space-between;
     gap: 1rem;
     width: 100%;
-    height: calc(50vh - 5rem);
+    height: calc(40vh - 5rem);
+    @media (min-height: $sm) and (max-width: $sm) {
+      flex-direction: column-reverse;
+    }
     .heroImageContainer {
       @include flexCenter;
-      background-color: $orange;
       border-radius: 2rem;
       width: 100%;
       height: 100%;
       position: relative;
-      min-height: 7rem;
       overflow: hidden;
+      display: none;
+      @media (min-height: $md) or (min-width: $md) {
+        background-color: transparent;
+        backdrop-filter: brightness(0.5) blur(8px);
+        display: flex;
+      }
 
       .heroIconContainer {
         position: relative;
@@ -214,23 +242,19 @@
 }
 
 .listContent {
+  @include flexCenter;
   width: 50%;
   height: 100%;
-  background-color: $black;
   border-radius: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 1rem;
   gap: 1rem;
   width: 100%;
   height: 100%;
-  min-height: 11rem;
   .firstItems,
   .lastItems {
     width: fit-content;
     height: fit-content;
-    gap: 2rem;
+    gap: 1rem;
     display: flex;
     flex-direction: column-reverse;
     align-items: start;
@@ -241,16 +265,18 @@
       align-items: center;
       gap: 0.25rem;
       width: fit-content;
-      padding-block: 0.35rem;
+      padding-block: 0.25rem;
       padding-inline: 0.55rem;
-      border-radius: 1.5rem;
+      border-radius: 1rem;
       background-color: $black-cold;
       color: $white-primary;
       overflow: hidden;
       cursor: default;
       p {
-        font-size: clamp(0.675rem, 0.2rem + 1.75vw, 0.875rem);
+        position: relative;
+        font-size: clamp(0.575rem, 1.55vw, 0.875rem);
         font-family: $font-secondary;
+        text-wrap: balance;
         @media (max-height: $sm) {
           font-size: 0.65rem;
         }
@@ -261,7 +287,7 @@
         top: 0;
         height: 100%;
         width: 4.5rem;
-        border-radius: 1.5rem;
+        border-radius: 1rem;
         mask-image: linear-gradient(to right, black, transparent 90%);
         transition: width 0.3s ease-in-out;
       }
@@ -269,9 +295,9 @@
         @include flexCenter;
         position: relative;
         z-index: 1;
-        width: 2.5rem;
-        min-width: 2.5rem;
-        height: 2.5rem;
+        width: 2rem;
+        min-width: 2rem;
+        height: 2rem;
         border-radius: 12rem;
         background-color: $black;
       }
@@ -289,6 +315,25 @@
       }
     }
   }
+  @media (min-height: $sm) and (min-width: $sm) {
+    background-color: transparent;
+    backdrop-filter: brightness(0.5) blur(8px);
+    justify-content: center;
+    .firstItems,
+    .lastItems {
+      gap: 2rem;
+    }
+  }
+}
+
+.backgroundImage {
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/hero.webp");
+  background-position: center;
+  background-size: cover;
+  opacity: 0.75;
+  filter: brightness(0.9);
 }
 
 @keyframes pulseFading {
