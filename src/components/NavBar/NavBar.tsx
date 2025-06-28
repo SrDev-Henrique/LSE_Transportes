@@ -6,11 +6,27 @@ import Link from "next/link";
 import Menu from "./Menu/Menu";
 import { IoMdArrowDropdownCircle, IoMdCloseCircle } from "react-icons/io";
 import { useState } from "react";
+import { useLocalLenis } from "@/context/LocalLenisContext";
+import { sectionRefs } from "@/utils/sectionRefs";
 
 const navigationItems = ["Serviços", "Sobre Nós", "Diferenciais", "Contato"];
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const { lenis } = useLocalLenis();
+
+  const handleNavClick = (item: string) => {
+    const sectionId = `${item.toLowerCase()}`;
+    const section = sectionRefs.current[sectionId];
+    if (section && lenis) {
+      lenis.scrollTo(section, {
+        offset: 0,
+        duration: 1,
+      });
+    }
+  };
+
   return (
     <header className={styles.container}>
       <nav className={styles.nav}>
@@ -30,7 +46,11 @@ const NavBar = () => {
         <div className={styles.navigation}>
           {navigationItems.map((item, index) => {
             return (
-              <div key={index} className={styles.item}>
+              <div
+                key={index}
+                className={styles.item}
+                onClick={() => handleNavClick(item)}
+              >
                 <p>{item}</p>
               </div>
             );
@@ -51,7 +71,11 @@ const NavBar = () => {
           )}
         </div>
       </nav>
-      <Menu isMenuOpen={isMenuOpen} items={navigationItems} />
+      <Menu
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+        items={navigationItems}
+      />
     </header>
   );
 };

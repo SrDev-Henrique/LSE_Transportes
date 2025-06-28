@@ -12,8 +12,6 @@
   align-items: center;
   justify-content: center;
   width: 100svw;
-  height: auto;
-  min-height: 100lvh;
   background-color: $black-cold;
 
   .heroContent {
@@ -216,7 +214,7 @@
       position: relative;
       overflow: hidden;
       display: none;
-      @media (min-height: $md) or (min-width: $md) {
+      @media (min-height: $sm) or (min-width: $md) {
         background-color: transparent;
         backdrop-filter: brightness(0.5) blur(8px);
         display: flex;

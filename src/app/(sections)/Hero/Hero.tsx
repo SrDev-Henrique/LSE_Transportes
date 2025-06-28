@@ -49,7 +49,7 @@ const Hero = () => {
     <section
       style={{
         height: "100vh",
-        minHeight: "100lvh",
+        minHeight: "100vh",
       }}
       aria-label="hero"
       className={styles.container}

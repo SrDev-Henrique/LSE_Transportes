@@ -6,14 +6,26 @@ import { menuVariants } from "./anime";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { HiOutlineMail } from "react-icons/hi";
 import Link from "next/link";
+import { sectionRefs } from "@/utils/sectionRefs";
 
 const Menu = ({
   isMenuOpen,
+  setIsMenuOpen,
   items,
 }: {
   isMenuOpen: boolean;
+  setIsMenuOpen: (isMenuOpen: boolean) => void;
   items: string[];
 }) => {
+
+  const handleNavClick = (item: string) => {
+    const sectionId = `${item.toLowerCase()}`;
+    const section = sectionRefs.current[sectionId];
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMenuOpen(false);
+  };
   return (
     <header className={styles.container}>
       <motion.div
@@ -24,7 +36,11 @@ const Menu = ({
         <div className={styles.navigation}>
           {items.map((item, index) => {
             return (
-              <div key={index} className={styles.item}>
+              <div
+                onClick={() => handleNavClick(item)}
+                key={index}
+                className={styles.item}
+              >
                 <p>{item}</p>
               </div>
             );
@@ -35,7 +51,7 @@ const Menu = ({
             <HiOutlineMail size={20} color={"#ff4c4c"} />
             <Link
               href={
-                "mailto:halbuquerque2850@gmail.com?subject=Gostaria%20de%20um%20orçamento%20para%20um%20transporte"
+                "mailto:l.a.tagliari@gmail.com?subject=Gostaria%20de%20um%20orçamento%20para%20um%20transporte"
               }
             >
               <p>

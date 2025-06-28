@@ -1,0 +1,25 @@
+@use "@/styles/variables" as *;
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scrollToTop {
+  @include flexCenter;
+  position: fixed;
+  bottom: 1rem;
+  right: clamp(1rem, 5vw, 5rem);
+  width: 40px;
+  height: 40px;
+  background-color: $black-cold;
+  border-radius: 50%;
+  color: $white-secondary;
+  cursor: pointer;
+  z-index: 10;
+
+  @media (min-width: $lg) {
+    right: clamp(1rem, 10vw, 15rem);
+  }
+}

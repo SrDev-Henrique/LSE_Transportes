@@ -16,8 +16,7 @@
   align-items: center;
   position: fixed;
   top: 0.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: calc(50vw - min(49%, 32.5rem));
   z-index: 100;
   width: min(98%, 65rem);
   height: 4rem;

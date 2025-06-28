@@ -6,7 +6,7 @@ export const menuVariants = {
     top: "0rem",
     width: "100%",
     height: "100%",
-    borderRadius: "0.75rem",
+    borderRadius: "0.5rem",
     backgroundColor: "#212529",
     transition: {
       duration: 0.6,
@@ -17,7 +17,7 @@ export const menuVariants = {
     left: "-1%",
     top: "-0.5rem",
     width: "100vw",
-    height: "100vh",
+    height: "100dvh",
     borderRadius: "0rem",
     backgroundColor: "#0a0a0a",
     transition: {
