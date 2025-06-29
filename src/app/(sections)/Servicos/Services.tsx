@@ -19,7 +19,7 @@ const Services = () => {
     >
       <div className={styles.servicesContent}>
         <aside>
-          <p className={styles.textaside}>LSE - Serviços de Entregas</p>
+          <p className={styles.textaside}>LSE - Serviço de Transporte</p>
         </aside>
         <div className={styles.servicesIntro}>
           <div className={styles.intro}>

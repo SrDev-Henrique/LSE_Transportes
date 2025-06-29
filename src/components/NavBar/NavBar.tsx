@@ -19,11 +19,12 @@ const NavBar = () => {
   const handleNavClick = (item: string) => {
     const sectionId = `${item.toLowerCase()}`;
     const section = sectionRefs.current[sectionId];
-    if (section && lenis) {
-      lenis.scrollTo(section, {
-        offset: 0,
-        duration: 1,
-      });
+    if (section) {
+      lenis?.stop();
+      section.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        lenis?.start();
+      }, 100);
     }
   };
 

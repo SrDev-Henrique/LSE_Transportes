@@ -187,10 +187,6 @@
     .whatsapp {
       background-color: $green-whatsapp;
     }
-
-    @media (min-width: $sm) {
-      flex-direction: row;
-    }
   }
 }
 

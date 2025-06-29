@@ -7,6 +7,7 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import { HiOutlineMail } from "react-icons/hi";
 import Link from "next/link";
 import { sectionRefs } from "@/utils/sectionRefs";
+import { useLocalLenis } from "@/context/LocalLenisContext";
 
 const Menu = ({
   isMenuOpen,
@@ -17,14 +18,19 @@ const Menu = ({
   setIsMenuOpen: (isMenuOpen: boolean) => void;
   items: string[];
 }) => {
+  const { lenis } = useLocalLenis();
 
   const handleNavClick = (item: string) => {
     const sectionId = `${item.toLowerCase()}`;
     const section = sectionRefs.current[sectionId];
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      lenis?.stop();
+      section.scrollIntoView({ behavior: "instant" });
+      setTimeout(() => {
+        lenis?.start();
+        setIsMenuOpen(false);
+      }, 100);
     }
-    setIsMenuOpen(false);
   };
   return (
     <header className={styles.container}>

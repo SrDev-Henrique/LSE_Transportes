@@ -21,7 +21,7 @@ const Container = ({ children }: { children: React.ReactNode }) => {
     const localLenis = new Lenis({
       wrapper: container,
       content: container,
-      duration: 1.5,
+      duration: 0.8,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       touchMultiplier: 0,
@@ -56,7 +56,14 @@ const Container = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <LocalLenisContext.Provider value={{ lenis: lenisRef.current }}>
-      <div ref={containerRef} className="main">
+      <div
+        style={{
+          height: "100vh",
+          overflowY: "auto",
+        }}
+        ref={containerRef}
+        className="main"
+      >
         <NavBar />
         {children}
         <div
