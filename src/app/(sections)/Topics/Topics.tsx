@@ -2,6 +2,8 @@
 
 import { sectionRefs } from "@/utils/sectionRefs";
 import styles from "./Topics.module.scss";
+import { topics } from "./data";
+import classNames from "classnames";
 
 const Topics = () => {
   return (
@@ -19,7 +21,24 @@ const Topics = () => {
         </p>
       </div>
       <div className={styles.topicsContainer}>
-        <div className={styles.topics}></div>
+        <div className={styles.topics}>
+          {topics.map((topic, index) => {
+            const { title, description } = topic;
+            return (
+              <div className={classNames(styles.topic, "topic")} key={index}>
+                <div className={styles.topicTitle}>
+                  <h2>{title}</h2>
+                </div>
+                <div className={styles.topicDescription}>
+                  <p>{description}</p>
+                </div>
+                <div className={styles.topicIcon}>
+                  <topic.icon isGreen={index === 1} />
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

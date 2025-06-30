@@ -1,10 +1,10 @@
-export const SnowflakeIcon = () => {
+export const SnowflakeIcon = ({ isGreen = false }: { isGreen?: boolean }) => {
   return (
     <svg
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      fill="#489fb5"
+      fill={isGreen ? "#b0e482" : "#489fb5"}
       xmlns="http://www.w3.org/2000/svg"
     >
       <g clipPath="url(#clip0_4418_4275)">

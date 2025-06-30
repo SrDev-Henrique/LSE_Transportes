@@ -115,3 +115,72 @@ a {
   overflow-x: hidden;
   padding-bottom: 5rem;
 }
+
+.topic:hover .emoji-mouth {
+  transform-box: fill-box;
+  transform-origin: center top;
+  animation: mouthBounce 0.8s cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+.topic:hover .calendar-header {
+  animation: headerSeparate 0.8s cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+.topic:hover .calendar-body {
+  animation: bodySeparate 0.8s cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+.topic:hover .first-cardano,
+.topic:hover .second-cardano,
+.topic:hover .third-cardano,
+.topic:hover .last-cardano {
+  animation: nodePulse 0.8s cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+.topic:hover .second-cardano {
+  animation-delay: 0.05s;
+}
+.topic:hover .third-cardano {
+  animation-delay: 0.1s;
+}
+.topic:hover .last-cardano {
+  animation-delay: 0.15s;
+}
+
+@keyframes mouthBounce {
+  0%   { transform: scaleY(1); }
+  25%  { transform: scaleY(0.4); }
+  50%  { transform: scaleY(1); }
+  75%  { transform: scaleY(0.4); }
+  100% { transform: scaleY(1); }
+}
+
+@keyframes headerSeparate {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1.5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bodySeparate {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(1.5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes nodePulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
