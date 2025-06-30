@@ -2,7 +2,7 @@ export const servicesList = [
   {
     title: "Transporte de Alimentos Perecíveis",
     icon: "🥗",
-    image: "/images/aliments.webp",
+    image: "/images/aliments.jpg",
     alt: "Alimentos perecíveis",
     color: "#e8e5e5",
     description:
@@ -11,7 +11,7 @@ export const servicesList = [
   {
     title: "Transporte de Flores e Plantas",
     icon: "🌸",
-    image: "/images/flowers-2.webp",
+    image: "/images/flowers.jpg",
     alt: "Flores e plantas",
     color: "#e8e5e5",
     description:
@@ -29,7 +29,7 @@ export const servicesList = [
   {
     title: "Fretes Personalizados com Agendamento",
     icon: "📦",
-    image: "/images/frete.webp",
+    image: "/images/frete.jpg",
     alt: "Fretes personalizados com agendamento",
     color: "#e8e5e5",
     description:
