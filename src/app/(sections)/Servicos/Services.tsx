@@ -36,13 +36,10 @@ const Services = () => {
           <h2>Lista de serviços:</h2>
           <div className={styles.servicesList}>
             {servicesList.map((service, index) => {
-              const { title, icon, image, alt, color, description } = service;
+              const { title, icon, image, alt, description } = service;
               return (
                 <div key={index}>
                   <div
-                    style={{
-                      backgroundColor: color,
-                    }}
                     className={styles.service}
                   >
                     <h3>{title}</h3>

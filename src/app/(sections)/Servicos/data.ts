@@ -4,7 +4,6 @@ export const servicesList = [
     icon: "🥗",
     image: "/images/aliments.jpg",
     alt: "Alimentos perecíveis",
-    color: "#e8e5e5",
     description:
       "Garantimos a conservação ideal de carnes, laticínios, frutas, congelados e produtos resfriados com temperatura controlada durante todo o trajeto.",
   },
@@ -13,7 +12,6 @@ export const servicesList = [
     icon: "🌸",
     image: "/images/flowers.jpg",
     alt: "Flores e plantas",
-    color: "#e8e5e5",
     description:
       "Manuseio cuidadoso e temperatura controlada para manter o frescor e a qualidade de flores e plantas ornamentais durante o transporte.",
   },
@@ -22,7 +20,6 @@ export const servicesList = [
     icon: "💊",
     image: "/images/medical.webp",
     alt: "Medicamentos e insumos",
-    color: "#e8e5e5",
     description:
       "Seguimos padrões de cuidado e controle térmico para manter a integridade de medicamentos, vacinas e outros produtos farmacêuticos sensíveis.",
   },
@@ -31,7 +28,6 @@ export const servicesList = [
     icon: "📦",
     image: "/images/frete.jpg",
     alt: "Fretes personalizados com agendamento",
-    color: "#e8e5e5",
     description:
       "Flexibilidade para agendar coletas e entregas com atendimento 24h via WhatsApp. Ideal para cargas sob demanda, recorrentes ou emergenciais.",
   },
