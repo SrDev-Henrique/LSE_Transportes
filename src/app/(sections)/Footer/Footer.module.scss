@@ -10,10 +10,14 @@
   width: 100svw;
   height: fit-content;
   padding-top: 3rem;
-  padding-bottom: 5rem;
+  padding-bottom: 8rem;
   background-color: $black;
   overflow: hidden;
   margin-top: 8rem;
+
+  @media(min-width: $lg) {
+    padding-bottom: 5rem;
+  }
 
   .brand {
     position: absolute;
