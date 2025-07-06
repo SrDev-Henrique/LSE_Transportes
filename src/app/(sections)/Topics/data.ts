@@ -1,8 +1,8 @@
 import { CalendarIcon } from "@/components/icons/CalendarIcon";
 import { CardanoIcon } from "@/components/icons/CardanoIcon";
+import { ClockIcon } from "@/components/icons/ClockIcon";
 import { EmojiIcon } from "@/components/icons/EmojiIcon";
 import { RadarIcon } from "@/components/icons/RadarIcon";
-import { SecurityIcon } from "@/components/icons/SecurityIcon";
 import { SnowflakeIcon } from "@/components/icons/SnowflakeIcon";
 
 export const topics = [
@@ -31,10 +31,10 @@ export const topics = [
     icon: EmojiIcon,
   },
   {
-    title: "Seguro total de carga",
+    title: "Pontualidade garantida",
     description:
-      "Parceria com as melhores seguradoras para cobrir imprevistos e dar tranquilidade ao cliente.",
-    icon: SecurityIcon,
+      "Rigor no cumprimento de prazos, com coletas e entregas dentro da janela combinada, mesmo em situações emergenciais.",
+    icon: ClockIcon,
   },
   {
     title: "Sustentabilidade em rota",

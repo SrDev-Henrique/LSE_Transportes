@@ -147,12 +147,81 @@ a {
   animation-delay: 0.15s;
 }
 
+.submitButton.isSent {
+  .tick-circle__circle {
+    stroke-dasharray: 62.8;
+    stroke-dashoffset: 62.8;
+    animation: draw-circle 0.6s ease-out forwards;
+  }
+
+  .tick-circle__check {
+    stroke-dasharray: 14;
+    stroke-dashoffset: 14;
+    animation: draw-check 0.4s ease-out forwards;
+    animation-delay: 0.4s;
+  }
+}
+
+.submitButton.error {
+  .error-circle__circle {
+    stroke-dasharray: 62.8;
+    stroke-dashoffset: 62.8;
+    animation: draw-circle 0.4s ease-out forwards;
+  }
+
+  .error-circle__line1,
+  .error-circle__line2 {
+    stroke-dasharray: 11.3;
+    stroke-dashoffset: 11.3;
+    animation: draw-line 0.3s ease-out forwards;
+    animation-delay: 0.4s;
+  }
+
+  .error-circle__line2 {
+    animation-delay: 0.55s;
+  }
+}
+
+@keyframes draw-circle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw-circle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw-check {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 @keyframes mouthBounce {
-  0%   { transform: scaleY(1); }
-  25%  { transform: scaleY(0.4); }
-  50%  { transform: scaleY(1); }
-  75%  { transform: scaleY(0.4); }
-  100% { transform: scaleY(1); }
+  0% {
+    transform: scaleY(1);
+  }
+  25% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+  75% {
+    transform: scaleY(0.4);
+  }
+  100% {
+    transform: scaleY(1);
+  }
 }
 
 @keyframes headerSeparate {
@@ -180,7 +249,13 @@ a {
 }
 
 @keyframes nodePulse {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

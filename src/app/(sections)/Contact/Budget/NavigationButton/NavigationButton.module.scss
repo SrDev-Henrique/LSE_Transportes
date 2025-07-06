@@ -1,0 +1,30 @@
+@use "@/styles/variables" as *;
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  height: fit-content;
+  width: fit-content;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.75rem;
+  background-color: $green-lighter;
+  color: $black;
+  text-transform: uppercase;
+  font-family: $font-secondary;
+  font-weight: bold;
+  line-height: 0;
+  cursor: pointer;
+  transition: filter 0.3s ease-in-out;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+.prevButton {
+  background-color: $black-cold;
+  color: $white;
+  margin-bottom: 1rem;
+}

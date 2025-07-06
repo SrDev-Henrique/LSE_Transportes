@@ -3,6 +3,7 @@ import Hero from "./(sections)/Hero/Hero";
 import Services from "./(sections)/Servicos/Services";
 import Container from "@/components/Container/Container";
 import Topics from "./(sections)/Topics/Topics";
+import Contact from "./(sections)/Contact/Contact";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <Services />
         <About />
         <Topics />
+        <Contact />
       </Container>
     </main>
   );

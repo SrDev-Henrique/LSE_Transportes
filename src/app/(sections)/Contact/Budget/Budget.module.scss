@@ -1,0 +1,348 @@
+@use "@/styles/variables" as *;
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form {
+  position: relative;
+  width: min(90svw, 35rem);
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1rem;
+  background-color: transparent;
+
+  .fieldset {
+    border: none;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.3s ease-in-out;
+
+    legend {
+      margin-bottom: 1rem;
+      color: $black;
+      font-family: $font-secondary;
+      font-size: 1.15rem;
+      font-weight: bold;
+    }
+
+    &:nth-child(5) {
+      position: relative;
+    }
+  }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.65rem;
+
+  label,
+  input,
+  select,
+  select option,
+  textarea {
+    font-family: $font-secondary;
+    color: $black;
+    font-size: 17px;
+    outline: none;
+  }
+  label,
+  input,
+  textarea {
+    background-color: transparent;
+  }
+  input,
+  select,
+  textarea {
+    padding: 0.35rem;
+  }
+  input {
+    border: none;
+    border-bottom: 1px solid #0a0a0a50;
+  }
+  label {
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  select,
+  select option {
+    background-color: $white-secondary;
+    border: 1px solid #0a0a0a50;
+  }
+  textarea {
+    border: 1px solid #0a0a0a50;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    resize: none;
+    font-size: 16px;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px $white-secondary inset;
+    box-shadow: 0 0 0px 1000px $white-secondary inset;
+    -webkit-text-fill-color: $black-cold;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+.checkboxGroup {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(7, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+
+  @media (min-width: $sm) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  label {
+    padding-block: 0.6rem;
+    padding-inline: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: $black-cold;
+    color: $white;
+    font-family: $font-secondary;
+    font-weight: bold;
+    border-radius: 1rem;
+    cursor: pointer;
+  }
+}
+
+.radioGroup {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (min-width: $sm) {
+    padding-inline: 10%;
+  }
+
+  label {
+    padding-block: 0.6rem;
+    padding-inline: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: $black-cold;
+    color: $white;
+    font-family: $font-secondary;
+    font-weight: bold;
+    border-radius: 1rem;
+    cursor: pointer;
+  }
+}
+
+.mandatory {
+  span {
+    color: $red-opache;
+  }
+}
+
+.navigation {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.first {
+  justify-content: end;
+}
+
+.deliveryDate {
+  height: 2rem;
+}
+
+.progressContainer {
+  position: relative;
+  width: 100%;
+  height: 1rem;
+  background-color: $black-cold;
+  border-radius: 1rem;
+  overflow: hidden;
+
+  .progressBar {
+    height: 100%;
+    width: 0%;
+    background-color: $green-lighter;
+    transition: width 0.5s ease-in-out;
+  }
+
+  .stepsContainer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+
+    .step {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      p {
+        text-transform: uppercase;
+        font-size: 0.3rem;
+        font-family: $font-secondary;
+        font-weight: bold;
+        color: $black-cold;
+        transition: color 0.5s ease-in-out, font-size 0.5s ease-in-out;
+        @media (min-width: $sm) {
+          font-size: 0.55rem;
+        }
+      }
+      &:not(:nth-child(5)) {
+        border-right: 1px solid $black-cold;
+      }
+
+      &.activeStep {
+        p {
+          color: $black;
+          font-size: 0.35rem;
+          @media (min-width: $sm) {
+            font-size: 0.56rem;
+          }
+        }
+      }
+    }
+  }
+  .confirmation {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $green-lighter;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+
+    &.active {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+
+    p {
+      color: $black;
+      font-family: $font-secondary;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.6em;
+    }
+  }
+}
+
+.review {
+  height: 40vh;
+  min-height: 310px;
+  overflow-y: auto;
+  padding: 1rem;
+  background-color: $black-light;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.3);
+  scrollbar-color: $green-lighter transparent;
+  margin-bottom: 1rem;
+
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding-bottom: 0.5rem;
+      font-size: 0.85rem;
+      font-family: $font-secondary;
+      color: $white;
+      &:not(:last-child) {
+        border-bottom: 1px solid $green-lighter;
+        margin-bottom: 0.5rem;
+      }
+
+      strong {
+        color: $green-lighter;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+.confirmationMessage {
+  position: fixed;
+  right: 5%;
+  top: 15%;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  opacity: 0;
+  color: $green-lighter;
+  background-color: $black-cold;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  pointer-events: none;
+  z-index: 100;
+  transition: opacity 0.5s ease-in-out;
+
+  &.show {
+    opacity: 1;
+    animation: fadeOut 0.5s ease-in-out forwards;
+    animation-delay: 3s;
+  }
+
+  p {
+    color: $white;
+    font-family: $font-secondary;
+    font-size: 0.9rem;
+  }
+
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+    }
+  }
+}
+
+.estimateText {
+  color: $black;
+  font-family: $font-secondary;
+  margin-bottom: 1rem;
+  align-self: center;
+  display: flex;
+  gap: 0.25rem;
+
+  strong {
+    opacity: 0;
+    animation: appear 0.2s ease-in-out forwards;
+    animation-delay: 2.5s;
+  }
+
+  @keyframes appear {
+    to {
+      opacity: 1;
+    }
+  }
+}
