@@ -260,8 +260,6 @@ const Budget = ({
     return calculateEstimate(reviewData, distance ?? 0);
   }, [reviewData, distance]);
 
-  console.log(distance);
-
   useEffect(() => {
     if (currentIndex === 5) {
       const form = document.querySelector("form");
