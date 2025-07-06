@@ -18,7 +18,7 @@ export const servicesList = [
   {
     title: "Transporte de Medicamentos e Insumos Médicos",
     icon: "💊",
-    image: "/images/medical.webp",
+    image: "/images/medical.jpg",
     alt: "Medicamentos e insumos",
     description:
       "Seguimos padrões de cuidado e controle térmico para manter a integridade de medicamentos, vacinas e outros produtos farmacêuticos sensíveis.",
