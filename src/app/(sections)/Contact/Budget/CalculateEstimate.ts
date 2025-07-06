@@ -22,7 +22,7 @@ export const calculateEstimate = (
     ? data["Tipo de Transporte"]
     : String(data["Tipo de Transporte"]).split(",");
 
-  const initial =
+  const base =
     tiposSelecionados.reduce((acc, tipo) => {
       const val = basePorTipo[tipo.trim()] || 40;
       return val > acc ? val : acc;
@@ -33,10 +33,8 @@ export const calculateEstimate = (
   const refrigerado = String(data["Refrigerado"]).toLowerCase() === "sim";
   const emergency = String(data["Emergência"]).toLowerCase() === "sim";
 
-  const base =
-    initial + distancia * tarifaKm + peso * tarifaKg + volume * tarifaM3;
-
-  const total = base * 1.15;
+  const total =
+    base + distancia * tarifaKm + peso * tarifaKg + volume * tarifaM3;
 
   const final =
     refrigerado && emergency

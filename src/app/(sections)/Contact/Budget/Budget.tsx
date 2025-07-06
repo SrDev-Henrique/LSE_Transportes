@@ -293,7 +293,8 @@ const Budget = ({
       if (isValidAddress(coleta) && isValidAddress(entrega)) {
         calculateDistanceByAddress(coleta, entrega).then((km) => {
           if (km !== null) {
-            setDistance(km);
+            const realDistance = Math.round(km * 1.15 * 100) / 100;
+            setDistance(realDistance);
           }
         });
       }
