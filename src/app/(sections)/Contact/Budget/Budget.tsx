@@ -129,7 +129,7 @@ const Budget = ({
     addSection(" *Estimativa de Orçamento*");
     message += `• *Estimativa:* ${reviewData["Orçamento Estimado"]}%0A`;
 
-    const phoneNumber = "5519994012785";
+    const phoneNumber = "5519992055290";
     const url = `https://wa.me/${phoneNumber}?text=${message}`;
 
     window.location.href = url;
