@@ -17,6 +17,7 @@ const About = () => {
       ref={(el) => {
         if (el) sectionRefs.current["sobre nós"] = el as HTMLElement;
       }}
+      id="about"
       className={styles.container}
     >
       <div className={styles.title}>

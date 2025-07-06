@@ -113,7 +113,6 @@ a {
   width: 100svw;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-bottom: 5rem;
 }
 
 .topic:hover .emoji-mouth {

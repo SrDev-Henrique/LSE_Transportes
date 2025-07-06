@@ -1,0 +1,144 @@
+@use "@/styles/variables" as *;
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-inline: 4%;
+  gap: 1.5rem;
+  width: 100svw;
+  height: fit-content;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+  background-color: $black;
+  overflow: hidden;
+  margin-top: 8rem;
+
+  .brand {
+    position: absolute;
+    bottom: -2%;
+    right: 2%;
+    height: clamp(10.5rem, 15vw, 27.25rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+      font-weight: bold;
+      font-size: clamp(10.5rem, 15vw, 27.25rem);
+      line-height: 0;
+      color: $green-lighter;
+      opacity: 0.1;
+    }
+  }
+
+  .upperItems {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $md) {
+      flex-direction: row;
+    }
+  }
+
+  .footerItem {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 2rem;
+
+    &:nth-child(3) {
+      margin-top: 2.5rem;
+    }
+
+    .hover {
+      a {
+        &:hover {
+          color: $green-lighter;
+          padding-left: 0.25rem;
+        }
+      }
+    }
+
+    .contactItems,
+    ul,
+    .credits {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    @media(min-width: $md) {
+      .credits {
+        flex-direction: row;
+        gap: 1.5rem;
+      }
+    }
+  }
+
+  .emailItem {
+    border: 1px solid $red-opache;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+    &:hover {
+      p {
+        color: $red-opache;
+        padding-left: 0.4rem;
+      }
+    }
+  }
+
+  .whatsappItem {
+    border: 1px solid $green-whatsapp;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    &:hover {
+      p {
+        color: $green-whatsapp;
+        padding-left: 0.4rem;
+      }
+    }
+  }
+
+  .contactItem {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    width: fit-content;
+  }
+
+  .credits {
+    p {
+      font-size: clamp(1rem, 2vw, 1rem);
+    }
+    a {
+      color: $green-lighter;
+      font-size: clamp(1rem, 2vw, 1rem);
+    }
+  }
+
+  h2 {
+    font-family: $font-primary;
+    text-transform: uppercase;
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    color: $black-light;
+  }
+
+  p,
+  a {
+    font-family: $font-secondary;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    transition: color 0.3s ease-in-out, padding-left 0.3s ease-in-out;
+    color: $white-dark;
+    width: fit-content;
+  }
+
+  ul {
+    li {
+      list-style: none;
+    }
+  }
+}

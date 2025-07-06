@@ -11,7 +11,7 @@ const Hero = () => {
   const texts = [
     {
       text: "Solicitar orçamento",
-      href: "/form",
+      href: "#contact",
     },
     {
       text: "Fale pelo WhatsApp",
@@ -74,7 +74,7 @@ const Hero = () => {
               const { text, href } = item;
               return (
                 <Link
-                  target="_blank"
+                  target={index === 0 ? "" : "_blank"}
                   rel="noopener noreferrer"
                   href={href}
                   key={index}

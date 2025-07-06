@@ -17,6 +17,7 @@ const Contact = () => {
       ref={(el) => {
         if (el) sectionRefs.current["contato"] = el as HTMLElement;
       }}
+      id="contact"
       className={styles.container}
     >
       <div className={styles.title}>

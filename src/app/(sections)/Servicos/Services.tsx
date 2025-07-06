@@ -11,6 +11,7 @@ const Services = () => {
       ref={(el) => {
         if (el) sectionRefs.current["serviços"] = el as HTMLElement;
       }}
+      id="services"
       className={styles.container}
       style={{
         height: "auto",

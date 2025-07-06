@@ -11,6 +11,7 @@ const Topics = () => {
       ref={(el) => {
         if (el) sectionRefs.current["diferenciais"] = el as HTMLElement;
       }}
+      id="differentials"
       className={styles.container}
     >
       <div className={styles.title}>

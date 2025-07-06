@@ -75,7 +75,7 @@ const Menu = ({
             >
               <p>
                 Whatsapp:{" "}
-                <span className={styles.whatsapp}>(19) 9 9205-5290.</span>
+                <span className={styles.whatsapp}>(19) 9 9205-5290</span>
               </p>
             </Link>
           </div>
