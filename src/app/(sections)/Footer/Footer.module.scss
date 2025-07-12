@@ -115,6 +115,8 @@
   }
 
   .credits {
+    position: relative;
+    z-index: 100
     p {
       font-size: clamp(1rem, 2vw, 1rem);
     }

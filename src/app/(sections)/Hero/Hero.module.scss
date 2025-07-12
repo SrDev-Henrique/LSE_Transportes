@@ -223,7 +223,7 @@
         background-color: transparent;
         display: flex;
       }
-      @media (min-width: $sm) {
+      @media (min-width: $md) and (min-height: $sm) {
         background-color: #21252990;
         backdrop-filter: brightness(0.4) blur(8px);
         border: 1px solid #b0e48250;

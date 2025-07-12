@@ -67,7 +67,11 @@ const Footer = () => {
         <div className={styles.credits}>
           <p>
             Desenvolvido por{" "}
-            <a href="https://github.com/SrDev-Henrique" target="_blank">
+            <a
+              href="https://github.com/SrDev-Henrique"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Henrique Albuquerque
             </a>
           </p>
