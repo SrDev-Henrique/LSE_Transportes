@@ -581,7 +581,6 @@ const Budget = ({
               id="Rua da Retirada"
               name="Rua da Retirada"
               placeholder="Exemplo: Rua Teste, número"
-              pattern="^.+\s+\d+.*$"
               required
               onInvalid={(e) =>
                 (e.currentTarget as HTMLInputElement).setCustomValidity(
@@ -725,7 +724,6 @@ const Budget = ({
                   placeholder={placeholders[index]}
                   defaultValue=""
                   required
-                  pattern="^.+\s+\d+.*$"
                   onInvalid={(e) =>
                     (e.currentTarget as HTMLInputElement).setCustomValidity(
                       "O endereço deve conter pelo menos um número."
