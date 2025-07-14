@@ -195,17 +195,18 @@ const Budget = ({
     );
   };
 
-  const saveFormDataToLocalStorage = () => {
-    const form = document.querySelector("form");
-    if (!form) return;
-
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-
-    localStorage.setItem("budget-form", JSON.stringify(data));
-  };
-
+  
   useEffect(() => {
+    const saveFormDataToLocalStorage = () => {
+      const form = document.querySelector("form");
+      if (!form) return;
+  
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+  
+      localStorage.setItem("budget-form", JSON.stringify(data));
+    };
+
     const form = document.querySelector("form");
     if (!form) return;
 
@@ -580,8 +581,16 @@ const Budget = ({
               id="Rua da Retirada"
               name="Rua da Retirada"
               placeholder="Exemplo: Rua Teste, número"
-              pattern="^.+,\s*\d+.*$"
+              pattern="^.+\s+\d+.*$"
               required
+              onInvalid={(e) =>
+                (e.currentTarget as HTMLInputElement).setCustomValidity(
+                  "O endereço deve conter pelo menos um número."
+                )
+              }
+              onInput={(e) =>
+                (e.currentTarget as HTMLInputElement).setCustomValidity("")
+              }
             />
           </div>
           <div className={styles.inputGroup}>
@@ -707,6 +716,24 @@ const Budget = ({
                   onChange={(e) => formatCEP(e, setDeliveryCep)}
                   placeholder="CEP de onde será realizada a entrega"
                   required
+                />
+              ) : field === "Rua da" ? (
+                <input
+                  type="text"
+                  id={`Rua da Entrega`}
+                  name={`Rua da Entrega`}
+                  placeholder={placeholders[index]}
+                  defaultValue=""
+                  required
+                  pattern="^.+\s+\d+.*$"
+                  onInvalid={(e) =>
+                    (e.currentTarget as HTMLInputElement).setCustomValidity(
+                      "O endereço deve conter pelo menos um número."
+                    )
+                  }
+                  onInput={(e) =>
+                    (e.currentTarget as HTMLInputElement).setCustomValidity("")
+                  }
                 />
               ) : (
                 <input

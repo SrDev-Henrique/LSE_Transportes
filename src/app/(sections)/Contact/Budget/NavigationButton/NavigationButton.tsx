@@ -2,6 +2,7 @@ import classNames from "classnames";
 import styles from "./NavigationButton.module.scss";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
+import { clearErrors, showError } from "./errors";
 
 const NavigationButton = ({
   currentIndex,
@@ -24,6 +25,8 @@ const NavigationButton = ({
     const fieldsets = document.querySelectorAll("form fieldset");
     const currentFieldset = fieldsets[currentField] as HTMLElement;
     const inputs = currentFieldset.querySelectorAll("input, select, textarea");
+
+    clearErrors(currentFieldset);
 
     let isValid = true;
 
@@ -70,24 +73,27 @@ const NavigationButton = ({
         !element.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)
       ) {
         element.focus();
+        showError(element, "Por favor, informe um email válido.");
         isValid = false;
         break;
       }
 
       if (
         element.name === "Rua da Entrega" &&
-        !element.value.match(/^.+,\s*\d+.*$/)
+        !element.value.match(/^.+\s+\d+.*$/)
       ) {
         element.focus();
+        showError(element, "Por favor, informe o número do endereço.");
         isValid = false;
         break;
       }
 
       if (
         element.name === "Rua da Retirada" &&
-        !element.value.match(/^.+,\s*\d+.*$/)
+        !element.value.match(/^.+\s+\d+.*$/)
       ) {
         element.focus();
+        showError(element, "Por favor, informe o número do endereço.");
         isValid = false;
         break;
       }
