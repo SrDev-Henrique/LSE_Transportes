@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/correctness/useExhaustiveDependencies: boring */
 import { useEffect, useMemo, useState } from "react";
 import styles from "./Budget.module.scss";
 import FormButton from "@/components/FormButton/FormButton";

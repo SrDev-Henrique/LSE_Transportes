@@ -1,5 +1,5 @@
 export const showError = (element: HTMLElement, message: string) => {
-  let error = element.parentElement?.querySelector(".error-message");
+  let error = element.parentElement?.querySelector(".error-message") as HTMLSpanElement | null;
   if (!error) {
     error = document.createElement("span");
     error.className = "error-message";
