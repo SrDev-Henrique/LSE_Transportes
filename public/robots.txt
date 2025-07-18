@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lsetransportes.vercel.app/sitemap.xml
